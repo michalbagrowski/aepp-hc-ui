@@ -4,7 +4,10 @@ import { sveltekit } from '@sveltejs/kit/vite';
 const config = {
 	plugins: [sveltekit()],
 	optimizeDeps: { esbuildOptions: { target: ['es2020'] } },
-	build: { target: ['es2020'] }
+	build: { target: ['es2020'], sourcemap: true },
+	ssr: {
+		noExternal: ['@aeternity/aepp-sdk', '@fortawesome/free-solid-svg-icons']
+	}
 };
 
 export default config;
